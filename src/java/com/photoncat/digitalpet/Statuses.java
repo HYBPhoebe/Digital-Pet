@@ -9,11 +9,20 @@ public class Statuses {
 		this.hunger = hunger;
 		this.cleanness = cleanness;
 	}
-	
-	// These fields will be modified to private with some getters in 
-	// a few commits.
-	// They are as they like because this is simple.
-	public long timestamp;
-	public int hunger;
-	public int cleanness;
+
+	private long timestamp;
+	private int hunger;
+	private int cleanness;
+
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	public int getHunger() {
+		return hunger;
+	}
+
+	public int getCleanness() {
+		return cleanness;
+	}
 }
