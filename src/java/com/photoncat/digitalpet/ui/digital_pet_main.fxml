@@ -18,6 +18,7 @@
             Hunger:
         </Label>
         <Label fx:id="hungerValue"/>
+        <ProgressBar fx:id="hungerProgress" visible="false"/>
         <Button onAction="#feed"> Feed </Button>
     </VBox>
 
