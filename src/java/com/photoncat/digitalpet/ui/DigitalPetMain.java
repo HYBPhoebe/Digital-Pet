@@ -14,6 +14,7 @@ public class DigitalPetMain {
     @FXML public ProgressBar hungerProgress;
 
     private Pet pet = new com.photoncat.digitalpet.control.Pet();
+//    private Pet pet = new DummyPet();
     private Timer idleTimer = new Timer();
 
     @FXML
@@ -23,8 +24,7 @@ public class DigitalPetMain {
             @Override
             public void run()
             {
-                Statuses statuses = pet.doNothing(getTimestamp());
-                hungerValue.setText(statuses.getHunger() + "/100");
+                update(pet.doNothing(getTimestamp()));
             }
         };
         idleTimer.scheduleAtFixedRate(task, 0, 500);
@@ -35,11 +35,10 @@ public class DigitalPetMain {
     }
 
     public void feed() {
-        Statuses statuses = pet.feed(getTimestamp());
-        hungerValue.setText(statuses.getHunger() + "/100");
+        update(pet.feed(getTimestamp()));
     }
 
-    private void update() {
-
+    private void update(Statuses statuses) {
+        hungerValue.setText(statuses.getHunger() + "/100");
     }
 }
