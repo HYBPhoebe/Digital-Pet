@@ -17,16 +17,23 @@ public class DigitalPet extends Application {
     @Override
     public void start(Stage primaryStage) {
         Parent root = null;
+        DigitalPetMain controller = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("digital_pet_main.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("digital_pet_main.fxml"));
+            root = loader.load();
+            controller = loader.getController();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        final DigitalPetMain controllerFinal = controller;
+        assert controllerFinal != null;
 
         Scene scene = new Scene(root);
 
         primaryStage.setTitle("Digital Pet");
         primaryStage.setScene(scene);
+        primaryStage.setOnHidden((event)->controllerFinal.shutdown());
         primaryStage.show();
     }
 }

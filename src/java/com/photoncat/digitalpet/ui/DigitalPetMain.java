@@ -29,6 +29,11 @@ public class DigitalPetMain {
         idleTimer.scheduleAtFixedRate(task, 0, 500);
     }
 
+    @FXML
+    public void shutdown() {
+        idleTimer.cancel();
+    }
+
     private long getTimestamp() {
         return System.currentTimeMillis() / 100;
     }
