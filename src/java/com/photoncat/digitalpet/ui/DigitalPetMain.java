@@ -44,5 +44,6 @@ public class DigitalPetMain {
 
     private void update(Statuses statuses) {
         hungerValue.setText(statuses.getHunger() + "/100");
+        hungerProgress.setProgress(statuses.getHunger() / 100f);
     }
 }
