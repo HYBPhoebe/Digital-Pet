@@ -15,11 +15,11 @@ public class Pet implements com.photoncat.digitalpet.Pet{
 
 
     public Statuses doNothing(long timestamp){
-        if(pro==0){
+        if(protime==0){
             protime=timestamp;
         }
         else {
-            hunger = (int) (pro + (timestamp - protime) / 10);
+            hunger = (int) (pro + (timestamp - protime));
             pro = hunger;
             // cleanness=(int)(pc+(timestamp-protime)/5);
             //pc=cleanness;
@@ -31,9 +31,9 @@ public class Pet implements com.photoncat.digitalpet.Pet{
     @Override
     public Statuses feed(long timestamp) {
 
+        
 
 
-       return null;
 
 
     }
