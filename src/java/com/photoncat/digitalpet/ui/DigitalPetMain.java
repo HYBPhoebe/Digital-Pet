@@ -20,11 +20,9 @@ public class DigitalPetMain {
 
     @FXML
     protected void initialize() {
-        TimerTask task = new TimerTask()
-        {
+        TimerTask task = new TimerTask() {
             @Override
-            public void run()
-            {
+            public void run() {
                 Platform.runLater(()->update(pet.doNothing(getTimestamp())));
             }
         };
