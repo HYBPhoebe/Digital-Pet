@@ -2,6 +2,7 @@ package com.photoncat.digitalpet.ui;
 
 import com.photoncat.digitalpet.Pet;
 import com.photoncat.digitalpet.Statuses;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -24,7 +25,7 @@ public class DigitalPetMain {
             @Override
             public void run()
             {
-                update(pet.doNothing(getTimestamp()));
+                Platform.runLater(()->update(pet.doNothing(getTimestamp())));
             }
         };
         idleTimer.scheduleAtFixedRate(task, 0, 500);
