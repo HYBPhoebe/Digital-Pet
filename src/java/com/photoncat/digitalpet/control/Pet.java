@@ -11,19 +11,28 @@ public class Pet implements com.photoncat.digitalpet.Pet{
     private int pro=0;//last hunger value;
     private long protime;//last post time;
     private int pc=0;//last cleanness value;
+    private int n=0;//time difference;
      private Statuses pet= new com.photoncat.digitalpet.Statuses(timestamp, hunger, cleanness);
 
 
     public Statuses doNothing(long timestamp){
-        if(pro==0){
+        if(protime==0){
             protime=timestamp;
         }
         else {
-            hunger = (int) (pro + (timestamp - protime) / 10);
+
+            hunger = (int) (pro + (timestamp - protime)/10);
             pro = hunger;
-            // cleanness=(int)(pc+(timestamp-protime)/5);
-            //pc=cleanness;
-            protime = timestamp;
+
+
+                if((timestamp-protime)<10){
+                n+=(int)(timestamp-protime);
+             }
+
+           else {
+                n -= 10;
+                protime = timestamp;
+            }
         }
        return new Statuses (timestamp, hunger,0);
     }
@@ -31,10 +40,13 @@ public class Pet implements com.photoncat.digitalpet.Pet{
     @Override
     public Statuses feed(long timestamp) {
 
+         hunger=pro-20;
+         if(hunger<0){
+             hunger=0;
+         }
+         pro=hunger;
 
-
-       return null;
-
+         return new Statuses(timestamp,hunger,0);
 
     }
 
