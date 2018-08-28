@@ -24,9 +24,7 @@ public class Pet implements com.photoncat.digitalpet.Pet{
         } else {
             hunger = (int) (pro + (timestamp - protime) / 10);
             pro = hunger;
-            cleanness = (int) (pc + (timestamp - protime) / 10);
-            pc = cleanness;
-
+            
             if ((timestamp - protime) < 10) {
                 n += (int) (timestamp - protime);
             } else {
