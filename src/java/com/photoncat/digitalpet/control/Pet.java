@@ -21,44 +21,52 @@ public class Pet implements com.photoncat.digitalpet.Pet{
     public Statuses doNothing(long timestamp) {
         if (protime == 0) {
             protime = timestamp;
-        } else {
-            if (hunger <= 100) {
-                hunger = (int) (pro + (timestamp - protime) / 0.5);
-                if (hunger > 100) {
-                    hunger = 100;
-                }
+        }
+        else {
 
+            hunger = (int) (pro + (timestamp - protime) / 10);
+            // if (hunger > 100) {
+            //   hunger = 100;
+            //}
+            pro = hunger;
+
+            if (pro > 100) {
+                hunger=100;
                 pro = hunger;
-                cleanness = (int) (pc - (timestamp - protime) / 10);
-                pc = cleanness;
+
+            } else {
                 if ((timestamp - protime) < 10) {
-                    n += (int) (timestamp - protime);
+                    n -= (int) (timestamp - protime);
                 } else {
                     n -= 10;
                     protime = timestamp;
                 }
-            } else {
-                hunger = 100;
-                pro = hunger;
             }
-        }
-                return new Statuses(timestamp, hunger, cleanness);
 
         }
-
-
-    @Override
-    public Statuses feed(long timestamp) {
-
-         hunger=pro-20;
-         if(hunger<0){
-             hunger=0;
-         }
-         pro=hunger;
-
-         return new Statuses(timestamp,hunger,0);
+            return new Statuses(timestamp, hunger, cleanness);
 
     }
+        /**cleanness = (int) (pc - (timestamp - protime) / 10);
+         if(cleanness>=0) {
+         pc = cleanness;
+         }
+         else{
+         pc=0;
+         }**/
+
+        @Override
+        public Statuses feed ( long timestamp){
+
+            hunger = pro - 20;
+            if (hunger < 0) {
+                hunger = 0;
+            }
+            pro = hunger;
+
+            return new Statuses(timestamp, hunger, 0);
+
+        }
 
     @Override
     public Statuses bath(long timestamp) {
