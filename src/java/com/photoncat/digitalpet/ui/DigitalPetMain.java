@@ -13,6 +13,8 @@ import java.util.TimerTask;
 public class DigitalPetMain {
     @FXML public Label hungerValue;
     @FXML public ProgressBar hungerProgress;
+    @FXML public Label cleannessValue;
+    @FXML public ProgressBar cleannessProgress;
 
     private Pet pet = new com.photoncat.digitalpet.control.Pet();
 //    private Pet pet = new DummyPet();
@@ -42,8 +44,14 @@ public class DigitalPetMain {
         update(pet.feed(getTimestamp()));
     }
 
+    public void bath() {
+        update(pet.bath(getTimestamp()));
+    }
+
     private void update(Statuses statuses) {
         hungerValue.setText(statuses.getHunger() + "/100");
         hungerProgress.setProgress(statuses.getHunger() / 100f);
+        cleannessValue.setText(statuses.getCleanness() + "/100");
+        cleannessProgress.setProgress(statuses.getCleanness() / 100f);
     }
 }
