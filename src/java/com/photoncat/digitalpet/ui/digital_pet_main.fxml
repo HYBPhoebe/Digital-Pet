@@ -20,7 +20,7 @@
         <Label fx:id="hungerValue"/>
         <ProgressBar fx:id="hungerProgress"/>
         <Label>
-            Hunger:
+            Cleanness:
         </Label>
         <Label fx:id="cleannessValue"/>
         <ProgressBar fx:id="cleannessProgress"/>
