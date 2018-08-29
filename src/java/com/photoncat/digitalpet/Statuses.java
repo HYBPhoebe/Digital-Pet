@@ -4,10 +4,33 @@ package com.photoncat.digitalpet;
  * A class holding everything status of a digital pet.
  */
 public class Statuses {
-	public Statuses(long timestamp, int hunger, int cleanness) {
-		this.timestamp = timestamp;
-		this.hunger = hunger;
-		this.cleanness = cleanness;
+	public static class Builder {
+        private long timestamp;
+        private int hunger;
+        private int cleanness;
+
+        public Builder setTimestamp(long timestamp) {
+            this.timestamp = timestamp;
+            return this;
+        }
+
+        public Builder setHunger(int hunger) {
+            this.hunger = hunger;
+            return this;
+        }
+
+        public Builder setCleanness(int cleanness) {
+            this.cleanness = cleanness;
+            return this;
+        }
+
+		public Statuses build() {
+		    Statuses result = new Statuses();
+		    result.timestamp = timestamp;
+		    result.hunger = hunger;
+		    result.cleanness = cleanness;
+		    return result;
+        }
 	}
 
 	private long timestamp;
@@ -25,4 +48,7 @@ public class Statuses {
 	public int getCleanness() {
 		return cleanness;
 	}
+
+	// We put an empty constructor here to limit accessibility to the constructor.
+	private Statuses() {}
 }
