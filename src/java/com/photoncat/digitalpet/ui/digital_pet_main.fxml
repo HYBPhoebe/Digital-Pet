@@ -18,8 +18,16 @@
             Hunger:
         </Label>
         <Label fx:id="hungerValue"/>
-        <ProgressBar fx:id="hungerProgress" visible="false"/>
-        <Button onAction="#feed"> Feed </Button>
+        <ProgressBar fx:id="hungerProgress"/>
+        <Label>
+            Hunger:
+        </Label>
+        <Label fx:id="cleannessValue"/>
+        <ProgressBar fx:id="cleannessProgress"/>
+        <HBox>
+            <Button onAction="#feed"> Feed </Button>
+            <Button onAction="#bath"> Bath </Button>
+        </HBox>
     </VBox>
 
 </AnchorPane>
