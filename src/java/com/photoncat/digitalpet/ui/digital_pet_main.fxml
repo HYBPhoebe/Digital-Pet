@@ -5,29 +5,36 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.photoncat.digitalpet.ui.DigitalPetMain"
             prefHeight="400.0" prefWidth="600.0">
-    <VBox
-            AnchorPane.leftAnchor="0.0"
-            AnchorPane.topAnchor="0.0"
-            AnchorPane.bottomAnchor="0.0" >
-        <Label>
-            Hunger:
-        </Label>
-        <Label fx:id="hungerValue"/>
-        <ProgressBar fx:id="hungerProgress"/>
-        <Label>
-            Hunger:
-        </Label>
-        <Label fx:id="cleannessValue"/>
-        <ProgressBar fx:id="cleannessProgress"/>
-        <HBox>
-            <Button onAction="#feed"> Feed </Button>
-            <Button onAction="#bath"> Bath </Button>
-        </HBox>
-    </VBox>
-
-</AnchorPane>
+    <left>
+        <VBox>
+            <Label>
+                Hunger:
+            </Label>
+            <Label fx:id="hungerValue"/>
+            <ProgressBar fx:id="hungerProgress"/>
+            <Label>
+                Cleanness:
+            </Label>
+            <Label fx:id="cleannessValue"/>
+            <ProgressBar fx:id="cleannessProgress"/>
+            <HBox>
+                <Button onAction="#feed">Feed</Button>
+                <Button onAction="#bath">Bath</Button>
+            </HBox>
+        </VBox>
+    </left>
+    <center>
+        <Pane style="-fx-border-color: black">
+            <ImageView fx:id="petImage"
+                       fitHeight="100.0" fitWidth="100.0"
+                       pickOnBounds="true"
+                       preserveRatio="true"/>
+        </Pane>
+    </center>
+</BorderPane>

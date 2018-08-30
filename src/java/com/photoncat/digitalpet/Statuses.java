@@ -8,6 +8,8 @@ public class Statuses {
         private long timestamp;
         private int hunger;
         private int cleanness;
+        private double x;
+        private double y;
 
         public Builder setTimestamp(long timestamp) {
             this.timestamp = timestamp;
@@ -24,11 +26,23 @@ public class Statuses {
             return this;
         }
 
+        public Builder setX(double x) {
+            this.x = x;
+            return this;
+        }
+
+        public Builder setY(double y) {
+            this.y = y;
+            return this;
+        }
+
 		public Statuses build() {
 		    Statuses result = new Statuses();
 		    result.timestamp = timestamp;
-		    result.hunger = hunger;
-		    result.cleanness = cleanness;
+            result.hunger = hunger;
+            result.cleanness = cleanness;
+            result.x = x;
+            result.y = y;
 		    return result;
         }
 	}
@@ -36,18 +50,28 @@ public class Statuses {
 	private long timestamp;
 	private int hunger;
 	private int cleanness;
+	private double x;
+	private double y;
 
 	public long getTimestamp() {
 		return timestamp;
 	}
 
-	public int getHunger() {
-		return hunger;
-	}
+    public int getHunger() {
+        return hunger;
+    }
 
-	public int getCleanness() {
-		return cleanness;
-	}
+    public int getCleanness() {
+        return cleanness;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
 
 	// We put an empty constructor here to limit accessibility to the constructor.
 	private Statuses() {}
